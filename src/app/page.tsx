@@ -1,65 +1,112 @@
-import Image from "next/image";
+import { ChevronRight, Truck, MapPinned } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-red-50 text-slate-900 flex flex-col antialiased">
+      
+      {/* HEADER / NAVBAR */}
+      <header className="w-full bg-red-500/90 backdrop-blur-md fixed top-0 z-50 border-b border-red-400/20 shadow-sm">
+        <div className="max-w-7xl mx-auto flex items-center h-16 justify-between px-6">
+
+          {/* LOGO */}
+          <div className="text-red-200 font-bold text-xl select-none flex items-center group cursor-pointer">
+            <div className="bg-red-600/50 rounded-xl p-2 group-hover:bg-red-400/50 transition-colors mr-2">
+              <Truck className="w-5 h-5 text-white group-hover:translate-x-0.5 duration-300 transition-all" />
+            </div>
+            Entrega
+            <span className="text-white ml-1">Neutron</span>
+          </div>
+
+          {/* NAV ESTILO PÍLULA */}
+          <nav className="text-white text-sm hidden md:flex bg-red-600/40 h-10 w-64 items-center justify-center rounded-full font-medium p-1 backdrop-blur-sm">
+            <Link href="/" className="hover:bg-white hover:text-red-600 transition-all flex-1 justify-center items-center flex rounded-full h-full">
+              Início
+            </Link>
+            <Link href="#sobre" className="hover:bg-white hover:text-red-600 transition-all flex-1 justify-center items-center flex rounded-full h-full">
+              Sobre
+            </Link>
+            <Link href="#servicos" className="hover:bg-white hover:text-red-600 transition-all flex-1 justify-center items-center flex rounded-full h-full">
+              Serviços
+            </Link>
+          </nav>
+
+          {/* BOTÃO CONTATO */}
+          <Link
+            href="/contato"
+            className="group hover:scale-[1.02] transition-all duration-200 flex gap-2 items-center bg-white text-red-600 font-bold py-2 px-4 rounded-xl text-sm shadow-md shadow-red-900/10"
+          >
+            Vamos Conversar?
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 duration-200 transition-all" />
+          </Link>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* HERO SECTION */}
+      <main className="flex-1 pt-24 pb-12 px-6 max-w-7xl mx-auto w-full flex items-center justify-center">
+        <div className="w-full bg-gradient-to-br from-red-500 to-red-600 rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-12 shadow-2xl shadow-red-500/20 relative overflow-hidden">
+          
+          {/* Detalhe abstrato de fundo para profundidade */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+
+          {/* TEXTOS E AÇÕES */}
+          <div className="flex flex-col w-full space-y-6 flex-1 z-10">
+            <div className="text-4xl md:text-5xl lg:text-6xl text-red-100 font-medium leading-tight tracking-tight">
+              Suas Encomendas na <br />
+              <span className="text-white font-black drop-shadow-sm block mt-2">
+                Velocidade da Luz
+              </span>
+            </div>
+
+            <p className="text-red-100/80 text-lg max-w-lg leading-relaxed">
+              Logística inteligente, rastreamento em tempo real e segurança de ponta a ponta para o seu negócio se mover mais rápido.
+            </p>
+
+            
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full max-w-md">
+              
+              <Link 
+                href="/rastreamento" 
+                className="bg-white rounded-xl py-4 px-6 flex text-sm w-full items-center justify-center gap-2 font-bold text-red-600 group hover:scale-[1.03] transition-all duration-200 shadow-lg shadow-red-700/20 hover:shadow-xl"
+              >
+                <MapPinned className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
+                Rastrear Código
+              </Link>
+              
+              
+              <Link 
+                href="#orcamento" 
+                className="bg-red-600/90 backdrop-blur-sm rounded-xl py-4 px-6 flex text-sm w-full items-center justify-center gap-2 font-bold text-white group hover:scale-[1.03] hover:bg-red-700/30 transition-all duration-200 border border-white/30"
+              >
+                Solicitar Orçamento
+              </Link>
+            </div>
+          </div>
+
+          {/* IMAGEM ILUSTRATIVA */}
+          <div className="flex-1 flex justify-center items-center z-10">
+            <div className="relative transform hover:scale-105 duration-500 transition-transform">
+              <Image 
+                width={480} 
+                height={340} 
+                alt="Modelo de caminhão 3D EntregaNeutron" 
+                src="https://cdn3d.iconscout.com/3d/premium/thumb/caminhao-de-entrega-de-carga-3d-icon-png-download-6293582.png" 
+                className="object-contain"
+                priority // Carrega a imagem principal mais rápido (Next.js Best Practice)
+              />
+            </div>
+          </div>
+
         </div>
       </main>
+
+      {/* FOOTER */}
+      <footer className="py-6 text-center text-sm text-slate-400 border-t border-slate-200/60 w-full max-w-7xl mx-auto px-6">
+        &copy; {new Date().getFullYear()} EntregaNeutron. Todos os direitos reservados.
+      </footer>
+      
     </div>
   );
 }

@@ -48,10 +48,10 @@ export default function Home() {
       <main className="flex-1 pt-24 pb-12 px-6 max-w-7xl mx-auto w-full flex items-center justify-center">
         <div className="w-full bg-gradient-to-br from-red-500 to-red-600 rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-12 shadow-2xl shadow-red-500/20 relative overflow-hidden">
           
-          {/* Detalhe abstrato de fundo para profundidade */}
+         
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* TEXTOS E AÇÕES */}
+          
           <div className="flex flex-col w-full space-y-6 flex-1 z-10">
             <div className="text-4xl md:text-5xl lg:text-6xl text-red-100 font-medium leading-tight tracking-tight">
               Suas Encomendas na <br />

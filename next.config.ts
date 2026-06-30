@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn3d.iconscout.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'static.vecteezy.com',
+      },
     ],
   },
 };

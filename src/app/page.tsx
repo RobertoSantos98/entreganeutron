@@ -3,6 +3,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+
+  const sobre = [
+    {id: 1, title: "Comprometimento", img: "https://static.vecteezy.com/ti/fotos-gratis/t2/66580128-caminhoes-e-transporte-servicos-garantindo-a-seguro-e-eficiente-entrega-do-bens-foto.jpeg", subtitle: "Padrão de excelência rigoroso focado na satisfação total do cliente final."} ,
+    {id: 2, title: "Responsabilidade", img: "https://static.vecteezy.com/ti/fotos-gratis/p1/70674634-comercial-carga-transporte-moderno-semi-caminhao-em-aberto-rodovia-entregando-bens-com-montanha-pano-de-fundo-foto.jpeg", subtitle: "Gerenciamento de riscos e segurança absoluta para cargas de qualquer valor."},
+    {id: 3, title: "Entrega", img: "https://static.vecteezy.com/ti/fotos-gratis/p1/70677272-semi-caminhao-em-rodovia-as-por-do-sol-entregando-bens-atraves-pais-com-montanhas-dentro-fundo-foto.jpeg", subtitle : "Agilidade sem atrito. O menor tempo de tráfego com acompanhamento ao vivo."}
+  ]
+
+  const widget = [
+    {id: 1, title: "10K+", label: "Entregas"},
+    {id: 2, title: "500+", label: "Clientes Filiais"},
+    {id: 3, title: "95%", label: "De Satisfação"},
+  ]
+
+
   return (
     <div className="min-h-screen bg-red-50 text-slate-900 flex flex-col antialiased">
 
@@ -53,9 +67,9 @@ export default function Home() {
 
 
           <div className="flex flex-col w-full space-y-6 flex-1 z-10">
-            <div className="text-4xl md:text-5xl lg:text-6xl text-red-100 font-medium leading-tight tracking-tight">
+            <div className="text-4xl md:text-5xl lg:text-4xl text-red-100 font-medium leading-tight tracking-tight">
               Suas Encomendas na <br />
-              <span className="text-white font-black drop-shadow-sm block mt-2">
+              <span className="text-white text-5xl font-black drop-shadow-sm block mt-2">
                 Velocidade da Luz
               </span>
             </div>
@@ -78,7 +92,7 @@ export default function Home() {
 
               <Link
                 href="#orcamento"
-                className="bg-red-600/90 backdrop-blur-sm rounded-xl py-4 px-6 flex text-sm w-full items-center justify-center gap-2 font-bold text-white group hover:scale-[1.03] hover:bg-red-700/30 transition-all duration-200 border border-white/30"
+                className="bg-red-500/80 backdrop-blur-sm rounded-xl py-4 px-6 flex text-sm w-full items-center justify-center gap-2 font-bold text-white group hover:scale-[1.03] transition-all duration-200 border border-white/30"
               >
                 Solicitar Orçamento
               </Link>
@@ -111,27 +125,62 @@ export default function Home() {
 
           <div className='flex flex-col md:flex-row justify-center items-center gap-8'>
 
-            <div className='rounded-xl max-w-[350px] w-full bg-red-500 flex flex-col hover:shadow-lg items-center overflow-hidden group hover:-translate-y-1 duration-300 transition-all'>
-              <div className='relative overflow-hidden w-full h-56'>
-                <Image className='group-hover:scale-105 duration-500 transition-all object-cover' fill alt='Foto Sobre 1' src="https://static.vecteezy.com/ti/fotos-gratis/t2/66580128-caminhoes-e-transporte-servicos-garantindo-a-seguro-e-eficiente-entrega-do-bens-foto.jpeg" />
-              </div>
-              <span className='text-white text-sm font-bold py-2 uppercase'>Comprometimento</span>
-            </div>
+            {sobre.map((s)=> (
+              <div key={s.id} className='rounded-xl max-w-[350px] gap-2 border border-red-300/50 w-full bg-white flex flex-col hover:shadow-lg items-center overflow-hidden group hover:-translate-y-1 duration-300 transition-all'>
+                <div className='relative overflow-hidden w-full h-56'>
+                  <Image className='group-hover:scale-105 duration-500 transition-all object-cover' fill alt='Foto Sobre' src={s.img} />
+                </div>
+                <div className='flex flex-col items-center p-4 gap-1'>
+                  <span className='text-red-600 text-sm font-bold uppercase'>{s.title}</span>
+                  <p className='text-zinc-500 text-xs text-center'>{s.subtitle}</p>
+                </div>
 
-            <div className='rounded-xl max-w-[350px] w-full bg-red-500 flex flex-col hover:shadow-lg items-center overflow-hidden group hover:-translate-y-1 duration-300 transition-all'>
-              <div className='relative overflow-hidden w-full h-56'>
-                <Image fill className='group-hover:scale-105 duration-500 transition-all object-cover' alt='Foto Sobre 1' src="https://static.vecteezy.com/ti/fotos-gratis/p1/70674634-comercial-carga-transporte-moderno-semi-caminhao-em-aberto-rodovia-entregando-bens-com-montanha-pano-de-fundo-foto.jpeg" />
               </div>
-              <span className='text-white text-sm font-bold py-2 uppercase'>Responsabilidade</span>
-            </div>
+            ))}
 
-            <div className='rounded-xl max-w-[350px] w-full bg-red-500 flex flex-col hover:shadow-lg items-center overflow-hidden group hover:-translate-y-1 duration-300 transition-all'>
-              <div className='relative overflow-hidden w-full h-56'>
-                <Image className='group-hover:scale-105 duration-500 transition-all object-cover' fill alt='Foto Sobre 1' src="https://static.vecteezy.com/ti/fotos-gratis/p1/70677272-semi-caminhao-em-rodovia-as-por-do-sol-entregando-bens-atraves-pais-com-montanhas-dentro-fundo-foto.jpeg" />
+
+
+          </div>
+        </div>
+      </section>
+
+      <section className='w-full'>
+        <div className='max-w-7xl mx-auto flex px-8 py-24'>
+          <div className='px-10 flex lg:flex-row flex-col h-full w-full items-center'>
+              <div className='w-full h-80 lg:h-120 relative overflow-hidden rounded-2xl'>
+                <div className='hover:scale-102 transition-all duration-500 w-full h-full'>
+                  <Image fill src={sobre[2].img} alt='foto' className='object-cover' />
+                </div>
               </div>
-              <span className='text-white text-sm font-bold py-2 uppercase'>Entrega</span>
-            </div>
 
+              <div className='w-full h-full items-center justify-center flex flex-col '>
+
+                <div className='flex items-center justify-center gap-4 border-t border-b border-red-100 mx-8 py-4'>
+                  {widget.map((w) => (
+                    <div key={w.id} className='hover:bg-red-100/50 p-4 rounded-xl'>
+                        <span className='text-red-600 font-extrabold text-2xl'>{w.title}</span>
+                        <p className='text-red-300 font-bold text-sm'>{w.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className='flex flex-col gap-4 p-8'>
+
+                  <p className='uppercase font-bold text-zinc-600'>
+                    Por muitos anos, a logistica de entrega tem mudado: mais caminhões, mais carros e mais pessoas. Com nossa ajuda, tudo isso se conecta facilitando e simplificando o processo do fornecedor até a entrega.
+                  </p>
+
+
+                  <Link href={"/sobre"} className=' flex group hover:shadow-md border border-zinc-300 shadow-gray-300/70 bg-white gap-2 p-1 rounded-full items-center pl-4 font-bold text-zinc-500 self-start hover:scale-102 transition-all duration-300'>
+                    Conheça nossa história
+                    <div className='bg-red-500 p-2 rounded-full text-white group-hover:translate-x-0.5 transition-all duration-100'>
+                      <ChevronRight className=' transition-all duration-100'/>
+                    </div>
+                  </Link>
+
+                </div>
+
+              </div>
 
           </div>
         </div>
